@@ -1,10 +1,12 @@
-$(document).ready(function() {
+
 		/*funcion para el inicio de sesion*/
-		$("#enviar").click(function(){
+	function log(){
+		
 			console.log("pase1");
 			var usuario = $("#usuario").val();
 			var contraseña= $("#contraseña").val();
 			console.log("pase2");
+			
 			 $.get("./funciones_php/login.php",{'usuario' : usuario,'contraseña' : contraseña},function(data,estado){
 
                 if(estado === 'success'){
@@ -18,6 +20,7 @@ $(document).ready(function() {
                     }else{
                     	$("#alertas").html("<p>Su usuario o contraseña esta mal por favor vuelva a introducirlos</p>")
                     	console.log(data.correcto);
+                    	event.preventDefault();
                     	return false;
                     	
                     }
@@ -25,7 +28,11 @@ $(document).ready(function() {
                 }
              });
     			
-		});
+	
+	}
+
+	/*funcion para validar el registro de la pagina*/
+	function registro(){
 		$("#enviar2").click(function(){
 			var usuario = $("#usuario1").val();
 			var contraseña1= $("#contraseña1").val();
@@ -54,7 +61,7 @@ $(document).ready(function() {
 				$("#contraseña1").html();
 				$("#contraseña2").html();
 				$("#contraseña1").focus();
-				return false;
+				event.preventDefault();
 				}
 					if(expreg2.test(correo)){
 						$.get("./funciones_php/registro.php",{'usuario' : usuario,'contraseña' : contraseña1,'correo' :correo},function(data,estado){
@@ -73,7 +80,7 @@ $(document).ready(function() {
                 			}
             			 });
 
-					return true;
+					
 					}
 					else{
 						$("#alertas2").html();
@@ -92,6 +99,7 @@ $(document).ready(function() {
 
 
 		});
+	}
+
 		
 
-	});

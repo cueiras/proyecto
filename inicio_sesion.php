@@ -16,15 +16,15 @@
 		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Registrarse</label>
 	
 		<div class="login-form">
-			
+			<form action="index.php" onsubmit="return log()">
 			<div class="sign-in-htm">
 				<div class="group">
 					<label for="user" class="label">Usuario</label>
-					<input id="usuario" type="text" class="input" >
+					<input id="usuario" type="text" class="input" required>
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Contraseña</label>
-					<input id="contraseña" type="password" class="input" data-type="password" >
+					<input id="contraseña" type="password" class="input" data-type="password" required>
 				</div>
 				<div class="group">
 					<input id="enviar" type="submit" class="button" value="Iniciar sesion">
@@ -32,39 +32,40 @@
 				<div class="hr"></div>
 				<div id="alertas"></div>
 			</div>
+			</form>
 
 		
 
-		
+			<form action="index.php" onsubmit="return registro()">
 			<div class="sign-up-htm">
 				<div class="group">
 					<label for="user" class="label">Usuario</label>
-					<input id="usuario1" type="text" class="input" >
+					<input id="usuario1" type="text" class="input" required>
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Contraseña</label>
-					<input id="contraseña1" type="password" class="input" data-type="password" >
+					<input id="contraseña1" type="password" class="input" data-type="password" required>
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Repite contraseña</label>
-					<input id="contraseña2" type="password" class="input" data-type="password" >
+					<input id="contraseña2" type="password" class="input" data-type="password" required>
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Correo Electronico</label>
-					<input id="correo" type="text" class="input" >
+					<input id="correo" type="text" class="input" required>
 				</div>
 				<div class="group">
-					<input id="enviar2" type="submit" class="button" value="Registrarse">
+					<input id="enviar2" type="submit" class="button" value="Registrarse" required>
 				</div>
 				<div class="hr"></div>
 				<div id="alertas2"></div>
 				
 				<div class="foot-lnk">
-					<label for="tab-1">¿Ya estas registrado?</a>
+					<label for="tab-1">¿Ya estas registrado?</label>
 				</div>
 				
 			</div>
-		
+			</form>
 		</div>
 	
 	</div>
