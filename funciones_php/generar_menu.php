@@ -1,12 +1,27 @@
 <?php 
-generar_menu();
-function generar_menu(){
-
-	include 'conexion.php';
+	
 	include 'idpisos_aleatorio.php';
+	session_start();
 	$numero=0;
 	id_pisos($numero);
+	$_SESSION['numero']=$numero;
 	
+	
+function fondo(){
+	include 'conexion.php';
+	$numero=$_SESSION['numero'];
+
+	$sql = "select imagenPrincipal from pisos where id_piso='$numero'";
+	$res = $conexion->query($sql);
+
+	while ($nfila = $res->fetch_object()) {
+		echo"style='background-image: url($nfila->imagenPrincipal);'";
+	}
+}
+
+function generar_menu(){
+	include 'conexion.php';
+	$numero=$_SESSION['numero'];
 
 	$sql = "select calle,numero,precio,imagenPrincipal from pisos where id_piso='$numero'";
 	

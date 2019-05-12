@@ -15,15 +15,15 @@
     <link rel="stylesheet" href="css/fl-bigmug-line.css">
     
   
-    
+    <?php include './funciones_php/generar_menu.php';  ?>
 
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<div class='navbar' style='background-image: url(./images/hero_bg_1.jpg);'>
+<div class='navbar' <?php fondo(); ?>>
 	<div class='col-7 pt-4 ml-4 mb-5 col-md-8 col-lg-4'>
     <h1 class='mb-0'><a href='index.html' class='h2 mb-0'><strong>ALQUILEA<span class='text-danger'>.</span></strong></a></h1>
-        </div>
+    </div>
     <div class='col-5 pt-4 mr-4 mb-5' id='menu1'>
     <a href='index.html'>Incio</a>
 			<a href='buy.html'>Casas en alquiler</a>
@@ -34,10 +34,11 @@
         </div>
 	<div class='col-12'>
  		<?php 
- 		include './funciones_php/generar_menu.php';
+ 		generar_menu();
 
  		?>
  	</div>
+ </div>
 	<div class="site-section site-section-sm pb-0">
       <div class="container">
         <div class="row">
