@@ -16,15 +16,16 @@
     
   
     <?php include './funciones_php/generar_menu.php';  ?>
+	<link rel="stylesheet" href="css/miStyle.css">
 
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div class='navbar' <?php fondo(); ?>>
-	<div class='col-7 pt-4 ml-4 mb-5 col-md-8 col-lg-4'>
+	<div class='col-6 pt-4 ml-4 mb-5 col-md-8 col-lg-4' id="menu1">
     <h1 class='mb-0'><a href='index.html' class='h2 mb-0'><strong>ALQUILEA<span class='text-danger'>.</span></strong></a></h1>
     </div>
-    <div class='col-5 pt-4 mr-4 mb-5' id='menu1'>
+    <div class='col-6 pt-4 mr-4 mb-5' id='menu2'>
     <a href='index.html'>Incio</a>
 			<a href='buy.html'>Casas en alquiler</a>
             <a href='rent.html'>Preguntas frecuentes</a>
@@ -32,7 +33,7 @@
             <a href='properties.html'>Conocenos</a> 
             <a href='contact.html'>Contacto</a>
         </div>
-	<div class='col-12'>
+	<div class='col-12' id="carrousel">
  		<?php 
  		generar_menu();
 
