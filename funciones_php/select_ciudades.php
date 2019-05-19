@@ -7,7 +7,7 @@ function ciudades(){
 	$res = $conexion->query($sql);
 
 	while ($nfila = $res->fetch_object()) {
-		echo"<option value=''>$nfila->ciudad</option>";
+		echo"<option value='$nfila->ciudad'>$nfila->ciudad</option>";
 	}
 }
 

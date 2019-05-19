@@ -7,7 +7,7 @@ function comunidades(){
 	$res = $conexion->query($sql);
 
 	while ($nfila = $res->fetch_object()) {
-		echo"<option value=''>$nfila->comunidad</option>";
+		echo"<option value='$nfila->comunidad'>$nfila->comunidad</option>";
 	}
 }
 

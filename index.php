@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/mediaelementplayer.css">
     <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
     <link rel="stylesheet" href="css/fl-bigmug-line.css">
     
   
@@ -22,6 +21,8 @@
 	
 	<link rel="stylesheet" href="css/miStyle.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./funciones_javaScript/buscar.js"></script>
 </head>
 <body>
 <div <?php fondo(); ?> class='navbar'>
@@ -68,7 +69,7 @@
                 </div>
               </div>
               <div class="col-md-3">
-                <input id="buscar" type="submit" class="btn btn-success text-white btn-block rounded-0"name ="buscar" value="Buscar">
+                <input id="buscar" type="button" class="btn btn-success text-white btn-block rounded-0"name ="buscar" value="Buscar">
               </div>
             </div>
           </form>
@@ -77,7 +78,7 @@
     </div>
     <div class="site-section site-section-sm bg-light" id="pisos">
 		<div class='container'>
-   		<div class='row mb-5'>
+   		<div class='row mb-5' id="pisosMuestra">
 		<?php 
 			if(!isset($_POST['buscar'])){
 				genericaPisos();
