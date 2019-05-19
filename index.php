@@ -2,11 +2,10 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"crossorigin="anonymous">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
-    
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/mediaelementplayer.css">
@@ -15,23 +14,25 @@
     <link rel="stylesheet" href="css/fl-bigmug-line.css">
     
   
-    <?php include './funciones_php/generar_menu.php';  ?>
+    <?php include './funciones_php/generar_menu.php';
+    	  include './funciones_php/select_ciudades.php';
+    	  include './funciones_php/select_comunidades.php';
+    ?>
+	
 	<link rel="stylesheet" href="css/miStyle.css">
-
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div class='navbar' <?php fondo(); ?>>
 	<div class='col-6 pt-4 ml-4 mb-5 col-md-8 col-lg-4' id="menu1">
-    <h1 class='mb-0'><a href='index.html' class='h2 mb-0'><strong>ALQUILEA<span class='text-danger'>.</span></strong></a></h1>
+    <h1 class='mb-0'><a href='index.html' class='h2 mb-0'><strong style="color:white;">ALQUILEA<span class='text-danger'>.</span></strong></a></h1>
     </div>
     <div class='col-6 pt-4 mr-4 mb-5' id='menu2'>
-    <a href='index.html'>Incio</a>
-			<a href='buy.html'>Casas en alquiler</a>
-            <a href='rent.html'>Preguntas frecuentes</a>
-                  
-            <a href='properties.html'>Conocenos</a> 
-            <a href='contact.html'>Contacto</a>
+    	<a href='index.html' style="color:white;">Incio</a>
+		<a href='buy.html' style="color:white;">Casas en alquiler</a>
+        <a href='rent.html' style="color:white;">Preguntas frecuentes</a>		                  
+        <a href='properties.html' style="color:white;">Conocenos</a> 
+        <a href='contact.html' style="color:white;">Contacto</a>
         </div>
 	<div class='col-12' id="carrousel">
  		<?php 
@@ -45,43 +46,28 @@
         <div class="row">
           <form class="form-search col-md-12" id="menu_filtros" style="margin-top: -100px;">
             <div class="row  align-items-end">
-              <div class="col-md-3">
-                <label for="list-types">Listing Types</label>
+              <div class="col-md-5">
+                <label for="list-types">Comunidades</label>
                 <div class="select-wrap">
                   <span class="icon icon-arrow_drop_down"></span>
                   <select name="list-types" id="list-types" class="form-control d-block rounded-0">
-                    <option value="">Condo</option>
-                    <option value="">Commercial Building</option>
-                    <option value="">Land Property</option>
+                  	<option value="" disabled selected>seleccione una comunidad</option>
+					<?php comunidades();?>
                   </select>
                 </div>
               </div>
-              <div class="col-md-3">
-                <label for="offer-types">Offer Type</label>
+              <div class="col-md-4">
+                <label for="offer-types">Ciudades</label>
                 <div class="select-wrap">
                   <span class="icon icon-arrow_drop_down"></span>
                   <select name="offer-types" id="offer-types" class="form-control d-block rounded-0">
-                    <option value="">For Sale</option>
-                    <option value="">For Rent</option>
-                    <option value="">For Lease</option>
+                  	<option value="" disabled selected>seleccione una ciudad</option>
+					<?php ciudades();?>
                   </select>
                 </div>
               </div>
               <div class="col-md-3">
-                <label for="select-city">Select City</label>
-                <div class="select-wrap">
-                  <span class="icon icon-arrow_drop_down"></span>
-                  <select name="select-city" id="select-city" class="form-control d-block rounded-0">
-                    <option value="">New York</option>
-                    <option value="">Brooklyn</option>
-                    <option value="">London</option>
-                    <option value="">Japan</option>
-                    <option value="">Philippines</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <input type="submit" class="btn btn-success text-white btn-block rounded-0" value="Search">
+                <input id="buscar" type="submit" class="btn btn-success text-white btn-block rounded-0" value="Buscar">
               </div>
             </div>
           </form>
