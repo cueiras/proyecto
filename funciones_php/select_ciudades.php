@@ -1,5 +1,5 @@
 <?php 
-ciudades();
+
 function ciudades(){
 	include 'conexion.php';
 

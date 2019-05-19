@@ -1,5 +1,5 @@
 <?php 
-comunidades();
+
 function comunidades(){
 	include 'conexion.php';
 
