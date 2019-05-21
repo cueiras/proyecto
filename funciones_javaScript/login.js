@@ -1,7 +1,7 @@
 
 		/*funcion para el inicio de sesion*/
 	function log(){
-		
+			event.preventDefault();
 			console.log("pase1");
 			var usuario = $("#usuario").val();
 			var contraseña= $("#contraseña").val();
@@ -13,15 +13,14 @@
                 	console.log("3");
                 	console.log(data);
                     if(data.correcto =="si"){
+                    	$(location).attr("href","index.php");
                     	$("#alertas").html("");
                     	console.log(data.correcto);
-                    	return true;
+                    	
 
                     }else{
                     	$("#alertas").html("<p>Su usuario o contraseña esta mal por favor vuelva a introducirlos</p>")
                     	console.log(data.correcto);
-                    	event.preventDefault();
-                    	return false;
                     	
                     }
                     

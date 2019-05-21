@@ -17,8 +17,9 @@
 		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Registrarse</label>
 	
 		<div class="login-form">
-			<form action="index.php" onsubmit="return log()">
+			
 			<div class="sign-in-htm">
+				<form action="index.php" onsubmit="return log()">
 				<div class="group">
 					<label for="user" class="label">Usuario</label>
 					<input id="usuario" type="text" class="input" required>
@@ -32,13 +33,15 @@
 				</div>
 				<div class="hr"></div>
 				<div id="alertas"></div>
+				</form>
 			</div>
-			</form>
+			
 
 		
 
-			<form action="index.php" onsubmit="return registro()">
+			
 			<div class="sign-up-htm">
+				<form action="index.php" onsubmit="return registro()">
 				<div class="group">
 					<label for="user" class="label">Usuario</label>
 					<input id="usuario1" type="text" class="input" required>
@@ -64,9 +67,9 @@
 				<div class="foot-lnk">
 					<label for="tab-1">¿Ya estas registrado?</label>
 				</div>
-				
+				</form>
 			</div>
-			</form>
+			
 		</div>
 	
 	</div>

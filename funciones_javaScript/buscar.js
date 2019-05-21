@@ -3,11 +3,11 @@
     var comunidad="";
 
    	$("#ciudad").change(function(){
-        ciudad=$('select[id=ciudad]').val();
+        ciudad=$('#ciudad').val();
             
 	})
 	$("#comunidad").change(function(){
-        comunidad=$('select[id=comunidad]').val();
+        comunidad=$('#comunidad').val();
             
 	})
     $("#buscar").click(function(){
