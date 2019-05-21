@@ -1,18 +1,34 @@
-$(document).ready(function(){
-    
+ function buscar(){
+ 	var ciudad="";
+    var comunidad="";
+
+   	$("#ciudad").change(function(){
+        ciudad=$('select[id=ciudad]').val();
+            
+	})
+	$("#comunidad").change(function(){
+        comunidad=$('select[id=comunidad]').val();
+            
+	})
     $("#buscar").click(function(){
-    	var ciudad=$("#ciudad option:selected").text();
-    	var comunidad=$("#comunidad option:selected").text();
-    	
-    
-    	console.log(ciudad);
     	$("#pisosMuestra").html("");
+    	console.log(ciudad);
+    	console.log(comunidad);
+    	$.get("../funciones_php/Consulta1FiltroPiso.php",{'ciudad' : ciudad,'comunidad' : comunidad},function(data,estado){
+    		if(data === 'success'){
+    			$("#pisosMuestra").html(data);
+    		}
+    	})
 
 
     
 
     })
+ }
 
+$(document).ready(function(){
+    buscar();
+});
 
     			
-});
+

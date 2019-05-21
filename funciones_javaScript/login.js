@@ -26,14 +26,14 @@
                     }
                     
                 }
-             });
+             })
     			
 	
 	}
 
 	/*funcion para validar el registro de la pagina*/
 	function registro(){
-		$("#enviar2").click(function(){
+	
 			var usuario = $("#usuario1").val();
 			var contraseña1= $("#contraseña1").val();
 			var contraseña2= $("#contraseña2").val();
@@ -75,7 +75,8 @@
                 					$("#usuario1").focus();
                 					console.log(data.disponible);
                 					console.log(data);
-                					return false;
+                					
+                					event.preventDefault();
                 				}
                 			}
             			 });
@@ -86,7 +87,8 @@
 						$("#alertas2").html();
 						$("#correo").focus();
 						$("#alertas2").html("<p>el correo introducido no es valido</p>");
-						return false;
+						
+						event.preventDefault();
 					}
 			}
 			
@@ -94,11 +96,12 @@
 				$("#alertas2").html();
 				$("#contraseña1").focus();
 				$("#alertas2").append("La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula NO puede tener otros símbolos");
-				return false;
+				
+				event.preventDefault();
 			}
 
 
-		});
+
 	}
 
 		

@@ -21,8 +21,9 @@
 	
 	<link rel="stylesheet" href="css/miStyle.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./funciones_javaScript/jquery-3.3.1.js"></script>
     <script src="./funciones_javaScript/buscar.js"></script>
+    
 </head>
 <body>
 <div <?php fondo(); ?> class='navbar'>
@@ -52,8 +53,8 @@
                 <label for="list-types">Comunidades</label>
                 <div class="select-wrap">
                   <span class="icon icon-arrow_drop_down"></span>
-                  <select name="list-types" id="list-types" class="form-control d-block rounded-0" id="comunidad">
-                  	<option value="" disabled selected>seleccione una comunidad</option>
+                  <select name="list-types" class="form-control d-block rounded-0" id="comunidad">
+                  	<option value="" disabled selected>Seleccione una comunidad</option>
 					<?php comunidades();?>
                   </select>
                 </div>
@@ -62,8 +63,8 @@
                 <label for="offer-types">Ciudades</label>
                 <div class="select-wrap">
                   <span class="icon icon-arrow_drop_down"></span>
-                  <select name="offer-types" id="offer-types" class="form-control d-block rounded-0" id="ciudad">
-                  	<option value="" disabled selected>seleccione una ciudad</option>
+                  <select name="offer-types" class="form-control d-block rounded-0" id="ciudad">
+                  	<option value="" disabled selected>Seleccione una ciudad</option>
 					<?php ciudades();?>
                   </select>
                 </div>

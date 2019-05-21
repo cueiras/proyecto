@@ -6,8 +6,9 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./css/cssInicio.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./funciones_javaScript/jquery-3.3.1.js"></script>
 	<script src="./funciones_javaScript/login.js"></script>
+
 </head>
 <body>
 <div class="login-wrap">
@@ -55,7 +56,7 @@
 					<input id="correo" type="text" class="input" required>
 				</div>
 				<div class="group">
-					<input id="enviar2" type="submit" class="button" value="Registrarse" required>
+					<input id="enviar2" type="submit" class="button" value="Registrarse">
 				</div>
 				<div class="hr"></div>
 				<div id="alertas2"></div>
