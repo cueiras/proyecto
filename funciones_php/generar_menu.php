@@ -30,7 +30,6 @@ function generar_menu(){
 	while ($nfila = $res->fetch_object()) {
 
 			echo"<div class='slide-one-item home-slider owl-carousel'>";
-    		
     		echo"<div class='container'>";
     		echo"<div class='row align-items-center justify-content-center text-center'>";
     		echo"<div class='col-md-10 pt-3'style='background-color: rgba(0,0,0,0.2);'>";

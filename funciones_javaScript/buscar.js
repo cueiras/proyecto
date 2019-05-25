@@ -15,9 +15,9 @@
     })
  }
  function cargarCiudades(){
- 	$("#comunidad").change(function(){
+
  		console.log("hola");
- 	})
+ 
  }
 
 

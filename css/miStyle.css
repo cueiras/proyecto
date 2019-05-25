@@ -1,12 +1,5 @@
 /*menu*/
-#menu1{
-	 padding-left: 5%;
-}
-#menu2{
-	display: flex;
-	justify-content: space-between;
-	padding-left: 10%;
-}
+
 #carrousel{
 	margin-top: 5%;
 }
