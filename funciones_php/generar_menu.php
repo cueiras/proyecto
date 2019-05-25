@@ -15,7 +15,7 @@ function fondo(){
 	$res = $conexion->query($sql);
 
 	while ($nfila = $res->fetch_object()) {
-		echo"style='background-image: url($nfila->imagenPrincipal);'";
+		echo"style='background-image: url($nfila->imagenPrincipal);background-repeat: no-repeat;'";
 	}
 }
 
@@ -30,10 +30,10 @@ function generar_menu(){
 	while ($nfila = $res->fetch_object()) {
 
 			echo"<div class='slide-one-item home-slider owl-carousel'>";
-    		echo"<div class='site-blocks-cover overlay' data-aos='fade' data-stellar-background-ratio='0.5'>";
+    		
     		echo"<div class='container'>";
     		echo"<div class='row align-items-center justify-content-center text-center'>";
-    		echo"<div class='col-md-10' >";
+    		echo"<div class='col-md-10 pt-3'style='background-color: rgba(0,0,0,0.2);'>";
     		echo"<span class='d-inline-block bg-success text-white px-3 mb-3 property-offer-type rounded'>Alquiler</span>";
    			echo"<h1 class='mb-2' style='color:white'>Ciudad:$nfila->ciudad Zona: $nfila->zona</h1>";
 			echo"<p class='mb-5'><strong class='h2 text-success font-weight-bold'>Precio:$nfila->precio</strong></p>";
@@ -41,8 +41,7 @@ function generar_menu(){
 			echo"<p><a href='#' class='btn  py-3 px-5 rounded-0 btn-2' style='color:white'>Mas detalles</a></p>
             </div>
           </div>
-        </div>
-      </div> ";
+        </div>";
 	echo"</div>";
 
 echo"</div>";

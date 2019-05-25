@@ -1,9 +1,8 @@
 <?php 
-
 function ciudades(){
 	include 'conexion.php';
-
-	$sql = "SELECT DISTINCT ciudad from pisos";
+	$comunidad=$_GET['comunidad'];
+	$sql = "SELECT DISTINCT ciudad from pisos where comunidad='$comunidad'";
 	$res = $conexion->query($sql);
 
 	while ($nfila = $res->fetch_object()) {

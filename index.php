@@ -1,16 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"crossorigin="anonymous">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/mediaelementplayer.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/fl-bigmug-line.css">
+	<title></title>  
+   <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/miStyle.css">
+    <link rel="stylesheet" href="css/style.css">
     
   
     <?php include './funciones_php/generar_menu.php';
@@ -19,11 +13,10 @@
     	  include './funciones_php/consultaGenericaPisos.php';
     ?>
 	
-	<link rel="stylesheet" href="css/miStyle.css">
-    <link rel="stylesheet" href="css/style.css">
+
     <script src="./funciones_javaScript/jquery-3.3.1.js"></script>
     <script src="./funciones_javaScript/buscar.js"></script>
-    
+
 </head>
 <body>
 <div <?php fondo(); ?> class='navbar'>
@@ -41,39 +34,58 @@
  		<?php 
  		generar_menu();
 
+
  		?>
  	</div>
  </div>
 	<div class="site-section site-section-sm pb-0">
       <div class="container">
-        <div class="row">
-          <form class="form-search col-md-12" id="menu_filtros" style="margin-top: -100px;">
-            <div class="row  align-items-end">
-              <div class="col-md-5">
-                <label for="list-types">Comunidades</label>
-                <div class="select-wrap">
-                  <span class="icon icon-arrow_drop_down"></span>
-                  <select name="list-types" class="form-control d-block rounded-0" id="comunidad">
-                  	<option value="" disabled selected>Seleccione una comunidad</option>
-					<?php comunidades();?>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <label for="offer-types">Ciudades</label>
-                <div class="select-wrap">
-                  <span class="icon icon-arrow_drop_down"></span>
-                  <select name="offer-types" class="form-control d-block rounded-0" id="ciudad">
-                  	<option value="" disabled selected>Seleccione una ciudad</option>
-					<?php ciudades();?>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <input id="buscar" type="button" class="btn btn-success text-white btn-block rounded-0"name ="buscar" value="Buscar">
-              </div>
-            </div>
-          </form>
+        <div class="row d-flex align-items-center">
+          <div class="col-2">
+            <label for="list-types">Comunidades</label>
+                <select name="list-types" id="comunidad"
+                  onchange="cargarCiudades()">
+                  <option value="" disabled selected>Comunidades</option>
+					           <?php comunidades();?>
+                </select>
+          </div>
+
+          <div class="col-2">
+            <label for="offer-types">Ciudades</label><br/>
+                <select name="offer-types" id="ciudad">
+                  <option id="option1" value="" disabled selected>Ciudades</option>
+                </select>
+          </div>
+          <div class="col-2">
+            <label for="offer-types">Zona</label><br/>
+                <select name="offer-types" id="zona">
+                  <option id="option1" value="" disabled selected>Zonas</option>
+                </select>
+          </div>
+          <div class="col-2">
+            <label for="offer-types">Habitaciones</label>
+                <select name="offer-types" id="habitaciones">
+                  <option id="option1" value="" disabled selected>Habitaciones</option>
+                  <option value="1">1 o mas</option>
+                  <option value="2">2 o mas</option>
+                  <option value="3">3 o mas</option>
+                  <option value="4">4 o mas</option>
+                </select>
+          </div>
+          <div class="col-2">
+            <label for="offer-types">Baños</label><br/>
+                <select name="offer-types" id="baños">
+                  <option id="option1" value="" disabled selected>Baños</option>
+                  <option value="1">1 o mas</option>
+                  <option value="2">2 o mas</option>
+                  <option value="3">3 o mas</option>
+                </select>
+          </div>
+
+          <div class="col-2">
+            <input id="buscar" type="button" class="btn btn-success text-white"name ="buscar" value="Buscar" onsubmit="buscar()">
+          </div>
+
         </div>  
       </div>
     </div>
@@ -91,6 +103,5 @@
 
 
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 </html>
