@@ -8,7 +8,7 @@
     
   
     <?php include './funciones_php/generar_menu.php';
-    	  include './funciones_php/select_ciudades.php';
+    	  
     	  include './funciones_php/select_comunidades.php';
     	  include './funciones_php/consultaGenericaPisos.php';
     ?>
@@ -16,6 +16,7 @@
 
     <script src="./funciones_javaScript/jquery-3.3.1.js"></script>
     <script src="./funciones_javaScript/buscar.js"></script>
+
 
 </head>
 <body>
@@ -47,7 +48,7 @@
         <div class="row d-flex align-items-center">
           <div class="col-2">
             <label for="list-types">Comunidades</label>
-                <select name="list-types" id="comunidad" onchange="cargarCiudades()">
+                <select name="list-types" id="comunidad">
                   <option value="" disabled selected>Comunidades</option>
 					           <?php comunidades();?>
                 </select>
@@ -56,7 +57,7 @@
           <div class="col-2">
             <label for="offer-types">Ciudades</label><br/>
                 <select name="offer-types" id="ciudad">
-                  <option id="option1" value="" disabled selected>Ciudades</option>
+                  <option id="optionCiudades" value="" disabled selected>Ciudades</option>
                 </select>
           </div>
           <div class="col-2">
@@ -86,7 +87,7 @@
           </div>
 
           <div class="col-2">
-            <input id="buscar" type="button" class="btn btn-success text-white"name ="buscar" value="Buscar" onsubmit="buscar()">
+            <input id="buscar" type="button" class="btn btn-success text-white" value="Buscar">
           </div>
 
         </div>  

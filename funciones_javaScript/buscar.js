@@ -1,25 +1,31 @@
  function buscar(){
     $("#buscar").click(function(){
-    $("#pisosMuestra").html("");
-   	var ciudad="";
-    var comunidad="";
-    ciudad=$('#ciudad').val();
-    comunidad=$('#comunidad').val();
-    	console.log(ciudad);
-    	console.log(comunidad);
-    	$.get("./funciones_php/consultaGenericaPisos.php",{'ciudad' : ciudad,'comunidad' : comunidad},function(data,estado){
-    		if(data === 'success'){
-    			$("#pisosMuestra").html(data);
-    		}
-    	})
+
     })
- }
- function cargarCiudades(){
 
- 		console.log("hola");
- 
  }
 
+function cargarCiudades(){
+ 	$("#comunidad").change(function(){
+        var comunidad=$("#comunidad").val();
+        console.log(comunidad);
+        $.get("./funciones_php/select_ciudades.php",{'comunidad' : comunidad},function(data,estado){
+            console.log("2");
+            if(estado === 'success'){
+                console.log("dentro");
+                console.log(data)
+                $("#optionCiudades").after(data.option);
+            }
+            console.log("3");
+        })
 
+        console.log("4");
+ 	})
+}
+
+$(document).ready(function() {
+    buscar();
+    cargarCiudades();
+})
     			
 
