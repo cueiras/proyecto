@@ -25,7 +25,7 @@
   <div class="container">
   <div class="row d-flex">
     <div class='col-4' id="menu1">
-      <h1 class='mb-0'><a href='index.html' class='h2 mb-0'><strong style="color:white;">ALQUILEA<span class='text-danger'>.</span></strong></a></h1>
+      <h1 class='mb-0'><a href='index.php' class='h2 mb-0'><strong style="color:white;">ALQUILEA<span class='text-danger'>.</span></strong></a></h1>
     </div>
     <div class="col-8" id="menu2">
       <a href='index.html' style="color:white;">Incio</a>

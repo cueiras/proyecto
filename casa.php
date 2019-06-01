@@ -35,19 +35,12 @@
       <a href='contact.html' style="color:white;">Contacto</a>
     </div>
   </div>
-  <div class="row ">
-    <div class='col-12 d-flex align-items-center' id="carrousel">
+  </div>
+</div>
       <?php 
         cargaPisos();
       ?>
-    </div>
-  </div>
-  </div>
-</div>
 
-<?php
-  
-?>
 
 </body>
 
