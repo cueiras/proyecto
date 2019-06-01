@@ -21,7 +21,7 @@
 
 </head>
 <body>
-<div <?php fondo(); ?> class='navbar'>
+<div style="<?php fondo();?>" class='navbar'>
   <div class="container">
   <div class="row d-flex">
     <div class='col-4' id="menu1">

@@ -15,7 +15,7 @@ function fondo(){
 	$res = $conexion->query($sql);
 
 	while ($nfila = $res->fetch_object()) {
-		echo"style='background-image: url($nfila->imagenPrincipal);background-repeat: no-repeat;'";
+		echo"background-image: url($nfila->imagenPrincipal);background-repeat: no-repeat;";
 	}
 }
 
