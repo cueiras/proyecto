@@ -1,5 +1,4 @@
 /*menu*/
-
 #carrousel{
 	margin-top: 5%;
 }
@@ -11,4 +10,17 @@
 }
 #fondo{
 	background-color: rgba(255,0,0,0.3);
+}
+#menu{
+	padding: 1%;
+}
+#menu2 > a{
+	padding:10px;
+}
+#menu2{
+	padding-top: 1%;
+	padding-left: 35%;
+}
+#menuPrincipal{
+	padding-top: 1%;
 }

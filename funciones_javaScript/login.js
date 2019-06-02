@@ -16,7 +16,6 @@
                     	$(location).attr("href","index.php");
                     	$("#alertas").html("");
                     	console.log(data.correcto);
-                    	
 
                     }else{
                     	$("#alertas").html("<p>Su usuario o contraseña esta mal por favor vuelva a introducirlos</p>")

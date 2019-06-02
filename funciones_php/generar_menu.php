@@ -1,7 +1,7 @@
 <?php 
 	
 	include 'idpisos_aleatorio.php';
-	session_start();
+
 	$numero=0;
 	id_pisos($numero);
 	$_SESSION['numero']=$numero;

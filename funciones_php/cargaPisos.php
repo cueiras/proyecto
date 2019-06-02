@@ -4,7 +4,9 @@ function cargaPisos(){
 	include 'conexion.php';
 	$idPiso="1";//$_SESSION['idPiso'];
 
-	$sql = "SELECT pisos.id_piso,pisos.imagenPrincipal,pisos.precio,pisos.habitaciones,pisos.banios,pisos.m2,pisos.tipo_casa,pisos.anio,pisos.imagenes,pisos.informacion,pisos.precio_m2,comunidades.nombreComunidad,ciudades.nombreCiudad,zonas.nombreZona,zonas.calle,zonas.numero,zonas.piso from pisos ,comunidades,ciudades,zonas where  pisos.id_piso='$idPiso' and comunidades.idComunidades = ciudades.idComunidades and ciudades.idCiudad = zonas.idCiudad and zonas.idZona = pisos.idZona";
+	$sql = "SELECT pisos.id_piso,pisos.imagenPrincipal,pisos.precio,pisos.habitaciones,pisos.banios,
+        pisos.m2,pisos.tipo_casa,pisos.anio,pisos.imagenes,pisos.informacion,pisos.precio_m2,
+        comunidades.nombreComunidad,ciudades.nombreCiudad,zonas.nombreZona,zonas.calle,zonas.numero,zonas.piso,dueños.telefono from pisos ,comunidades,ciudades,zonas,dueños where  pisos.id_piso='1' and comunidades.idComunidades = ciudades.idComunidades and ciudades.idCiudad = zonas.idCiudad and zonas.idZona = pisos.idZona and pisos.id_dueño=dueños.id_dueño";
 	$res = $conexion->query($sql);
 
 	while ($nfila = $res->fetch_object()) {
@@ -65,7 +67,6 @@ function cargaPisos(){
     echo"     <div class='col-lg-4'>";
     echo"        <div class='bg-white widget border rounded'>";
     echo"          <h3 class='h4 text-black widget-title mb-3'>Contacto</h3>";
-    echo"          <form action='' class='form-contact-agent'>";
     echo"            <div class='form-group'>";
     echo"              <label for='name'>Nombre</label>";
     echo"              <input type='text' id='name' class='form-control'>";
@@ -81,10 +82,9 @@ function cargaPisos(){
     echo"            <div class='form-group'>";
     echo"              <input type='submit' id='phone' class='btn btn-primary' value='Enviar mensaje'>";
     echo"            </div>";
-    echo"          </form>";
     echo"        </div>";
     echo"        <div class='bg-white widget border rounded'>";
-    echo"          <h3 class='h4 text-black widget-title mb-3'>TLF: </h3>";
+    echo"          <h3 class='h4 text-black widget-title mb-3'>TLF:$nfila->telefono</h3>";
     echo"          <p>Horario de visita de pisos de 8 a 6:30</p>
                     <p>De Lunes a Viernes</p>";
     echo"        </div>";

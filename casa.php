@@ -1,3 +1,14 @@
+<?php
+
+
+if(isset($_SESSION['usuario'])){
+
+}
+else{
+  header("location: login.php");
+
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,18 +32,16 @@
 
 </head>
 <body>
-<div style="<?php fondo();?>" class='navbar'>
+<div style="background-color:rgb(205, 205, 177);" id="menu">
   <div class="container">
-  <div class="row d-flex">
+  <div class="row d-flex align-items-center">
     <div class='col-4' id="menu1">
-      <h1 class='mb-0'><a href='index.html' class='h2 mb-0'><strong style="color:white;">ALQUILEA<span class='text-danger'>.</span></strong></a></h1>
+      <h1 class='mb-0'><a href='index.php' class='h2 mb-0'><strong style="color:white;">ALQUILEA<span class='text-danger'>.</span></strong></a></h1>
     </div>
-    <div class="col-8" id="menu2">
+    <div class="col-8 d-flex justify-content-center" id="menu2">
       <a href='index.html' style="color:white;">Incio</a>
       <a href='buy.html' style="color:white;">Casas en alquiler</a>
-      <a href='rent.html' style="color:white;">Preguntas frecuentes</a>                     
-      <a href='properties.html' style="color:white;">Conocenos</a> 
-      <a href='contact.html' style="color:white;">Contacto</a>
+      <a href='inicio_sesion.php' style="color:white;">Iniciar Sesion</a>
     </div>
   </div>
   </div>

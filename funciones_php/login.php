@@ -2,6 +2,8 @@
 login();
 function login(){
 	include 'conexion.php';
+session_start();
+
 
 $usuario=$_GET['usuario'];
 $contraseña=$_GET['contraseña'];
@@ -15,15 +17,19 @@ $contraseña=$_GET['contraseña'];
 
       if (!$row==null){
       	$clave = $row->contraseña;
-      	if( password_verify ($contraseña, $clave)){
-      	      //$_SESSION["usuario"] = $usuario;
-            header('Content-Type: application/json');
-    		echo json_encode(array("correcto" => "si"));
-        }
 
-      }else{
-        	header('Content-Type: application/json');
-			echo json_encode(array("correcto" => "no"));
+      	if(password_verify ($contraseña, $clave)){
+          header('Content-Type: application/json');
+    		  echo json_encode(array("correcto" => "si"));
+          $_SESSION['usuario']=$usuario;
+        }else{
+          header('Content-Type: application/json');
+          echo json_encode(array("correcto" => "no"));
+        }
+        }else{
+          header('Content-Type: application/json');
+          echo json_encode(array("correcto" => "no"));
+
       }
 
 }

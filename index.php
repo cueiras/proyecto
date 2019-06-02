@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+if(isset($_SESSION['usuario'])){
+  echo $_SESSION['usuario'];
+}
+else{
+  header("location:inicio_sesion.php");
+
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,26 +29,24 @@
     <script src="./funciones_javaScript/jquery-3.3.1.js"></script>
     <script src="./funciones_javaScript/buscar.js"></script>
     <script src="./funciones_javaScript/piso.js"></script>
-
-
+    <script src="./funciones_javaScript/inicio.js"></script>
+  
 </head>
 <body>
-<div style="<?php fondo();?>" class='navbar'>
+<div style="<?php fondo();?>" id="menuPrincipal">
   <div class="container">
-  <div class="row d-flex">
+  <div class="row d-flex d-flex align-items-center">
     <div class='col-4' id="menu1">
       <h1 class='mb-0'><a href='index.php' class='h2 mb-0'><strong style="color:white;">ALQUILEA<span class='text-danger'>.</span></strong></a></h1>
     </div>
     <div class="col-8" id="menu2">
-      <a href='index.html' style="color:white;">Incio</a>
+      <a href='index.php' style="color:white;">Incio</a>
       <a href='buy.html' style="color:white;">Casas en alquiler</a>
-      <a href='rent.html' style="color:white;">Preguntas frecuentes</a>                     
-      <a href='properties.html' style="color:white;">Conocenos</a> 
-      <a href='contact.html' style="color:white;">Contacto</a>
+      <a href='inicio_sesion.php' style="color:white;">Iniciar Sesion</a>
     </div>
   </div>
-  <div class="row ">
-    <div class='col-12 d-flex align-items-center' id="carrousel">
+  <div class="row d-flex align-items-center">
+    <div class='col-12' id="carrousel">
       <?php 
         generar_menu();
       ?>

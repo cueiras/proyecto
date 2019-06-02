@@ -1,3 +1,14 @@
+<?php 
+session_start();
+date_default_timezone_set('Europe/Madrid');
+if(isset($_SESSION['usuario'])){
+  header("location: index.php");
+}
+else{
+
+
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
