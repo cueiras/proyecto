@@ -8,7 +8,9 @@ function zonas(){
 
 	while ($nfila = $res->fetch_object()) {
 		header('Content-Type: application/json');
-    	echo json_encode(array("option" => "$nfila->nombreZona", "id"=>"$nfila->idZona"));
+    	$listado[] = array("option" => "$nfila->nombreZona" ,"id"=>"$nfila->idZona");
 	}
+	header('Content-Type: application/json');
+	echo json_encode($listado);
 }
 ?>

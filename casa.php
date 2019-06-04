@@ -1,11 +1,11 @@
 <?php
-
+    session_start();
 
 if(isset($_SESSION['usuario'])){
 
 }
 else{
-  header("location: login.php");
+  //header("location:inicio_sesion.php");
 
 }
 ?>
@@ -27,7 +27,7 @@ else{
   
 
     <script src="./funciones_javaScript/jquery-3.3.1.js"></script>
-    <script src="./funciones_javaScript/piso.js"></script>
+    
 
 
 </head>
