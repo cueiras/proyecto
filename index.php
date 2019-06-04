@@ -101,6 +101,9 @@ else{
             <div class="col-2">
                <input id="buscar" type="button" class="btn btn-success text-white" value="Buscar">
             </div>
+            <div class="col-12 d-flex align-items-center">
+                <p id="error" class="text-danger"></p>
+            </div>
          </div>
       </div>
    </div>
@@ -108,9 +111,9 @@ else{
       <div class='container'>
          <div class='row mb-5' id="pisosMuestra">
             <?php 
-               if(!isset($_POST['buscar'])){
+               
                 genericaPisos();
-               }  
+               
                ?>
          </div>
       </div>
@@ -136,7 +139,7 @@ else{
                            <ul class='property-specs-wrap mb-3 mb-lg-0  float-lg-right'>
                               <li>
                                  <span class='property-specs'>Habitaciones</span>
-                                 <span id="habitaciones" class='property-specs-number'></span>
+                                 <span id='habitacion' class='property-specs-number'></span>
                               </li>
                               <li>
                                  <span class='property-specs'>Baños</span>

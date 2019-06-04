@@ -4,8 +4,6 @@ function direcionar(){
 		console.log(idPiso);
 		$.get("./funciones_php/cargaPisos.php",{'idPiso' : idPiso},function(data,estado){
 			if(estado == 'success'){
-				console.log(data);
-				//$(location).attr("href","casa.php");
 				$("#selects").hide();
 				$("#pisos").hide();
 				$("#carrousel").hide();
@@ -20,14 +18,16 @@ function direcionar(){
 				$("#tlf").text("TLF: "+data.telefono);
 				$("#principal").attr("src",""+data.imagenPrincipal+"");
 				$("#m2").text(data.m2);
-				$("#habitaciones").text(data.habitaciones);
+				$("#habitacion").text(data.habitaciones);
 				$("#oculto").show();
-				$(document).scrollTop();
+				window.scrollTo(0,0);
 					
 			}
 		})
+		
 	})
 }
+
 
 
 $(document).ready(function() {
