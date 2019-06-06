@@ -5,17 +5,15 @@
         var zona=$("#zona").val();
         var habitaciones=$("#habitaciones").val();
         var banios=$("#baños").val();
-        console.log(comunidad);
-        console.log(ciudad);
-        console.log(zona);
 
         if(comunidad!=null&&ciudad!=null){
             $.get("./funciones_php/buscar.php",{'comunidad' : comunidad, 'ciudad' : ciudad,'zona' : zona,'habitaciones' : habitaciones,'banios' : banios},function(data,estado){
                 if(estado == 'success'){
                     $("#error").html("");
                    
+                    $("#pisosMuestra").html(" ")
                     for(var i=0;i<data.length;i++){
-                        $("#pisosMuestra").html(data[i].casa);
+                        $("#pisosMuestra").append(data[i].casas);
                         
                     }
                 }

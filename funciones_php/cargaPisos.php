@@ -7,7 +7,7 @@ function cargaPisos(){
 
 	$sql = "SELECT pisos.id_piso,pisos.imagenPrincipal,pisos.precio,pisos.habitaciones,pisos.banios,
         pisos.m2,pisos.tipo_casa,pisos.anio,pisos.imagenes,pisos.informacion,pisos.precio_m2,
-        comunidades.nombreComunidad,ciudades.nombreCiudad,zonas.nombreZona,zonas.calle,zonas.numero,zonas.piso,dueños.telefono from pisos ,comunidades,ciudades,zonas,dueños where  pisos.id_piso='$idPiso' and comunidades.idComunidades = ciudades.idComunidades and ciudades.idCiudad = zonas.idCiudad and zonas.idZona = pisos.idZona and pisos.id_dueño=dueños.id_dueño";
+        comunidades.nombreComunidad,ciudades.nombreCiudad,zonas.nombreZona,pisos.calle,pisos.numero,pisos.piso,dueños.telefono from pisos ,comunidades,ciudades,zonas,dueños where  pisos.id_piso='$idPiso' and comunidades.idComunidades = ciudades.idComunidades and ciudades.idCiudad = zonas.idCiudad and zonas.idZona = pisos.idZona and pisos.id_dueño=dueños.id_dueño";
 	$res = $conexion->query($sql);
     
 	$nfila = $res->fetch_object();

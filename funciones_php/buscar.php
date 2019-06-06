@@ -6,25 +6,31 @@ function genericaPisos(){
   $comunidades = $_GET['comunidad'];
   $ciudad = $_GET['ciudad'];
 
-  if(isset($_GET['zona'])){
   $zona = $_GET['zona'];
-  }else{$zona='[0-9]';}
+  if($zona==null){
+     $zona='[0-9]';
+  }
+  
 
-  if(isset($_GET['habitaciones'] )){
+
     $habitaciones = $_GET['habitaciones'];
-  }else{$habitaciones=0;}
-
-  if(isset($_GET['banio'])){
-    $banio = $_GET['banio'];
-  }else{$banio=0;}
+    if($habitaciones==null){
+        $habitaciones=0;
+    }
 
 
-  $sql = "SELECT pisos.id_piso,pisos.imagenPrincipal,pisos.precio,pisos.habitaciones,pisos.banios,pisos.m2,comunidades.nombreComunidad,ciudades.nombreCiudad,zonas.nombreZona,zonas.calle,zonas.numero,zonas.piso from pisos ,comunidades,ciudades,zonas where (comunidades.idComunidades = ciudades.idComunidades and ciudades.idCiudad = zonas.idCiudad and zonas.idZona = pisos.idZona) AND comunidades.idComunidades=$comunidades and 
-    ciudades.idCiudad=$ciudad and zonas.idZona REGEXP '$zona' and pisos.habitaciones > '$habitaciones' and pisos.anio > '$banio'";
+
+    $banio = $_GET['banios'];
+    if($banio==null){
+      $banio=0;
+    }
+
+  $sql = "SELECT pisos.id_piso,pisos.imagenPrincipal,pisos.precio,pisos.habitaciones,pisos.banios,pisos.m2,comunidades.nombreComunidad,ciudades.nombreCiudad,pisos.calle,pisos.piso from pisos ,comunidades,ciudades,zonas where (comunidades.idComunidades = ciudades.idComunidades and ciudades.idCiudad = zonas.idCiudad and zonas.idZona = pisos.idZona) AND comunidades.idComunidades='$comunidades' and 
+    ciudades.idCiudad='$ciudad' and zonas.idZona REGEXP '$zona' and pisos.habitaciones > '$habitaciones' and pisos.banios > '$banio'";
   $res = $conexion->query($sql);
   $casas = [];
   while ($nfila = $res->fetch_object()) {
-    $casas[] = array("casa" => "
+    $casas[] = array("casas" => "
   <div class='col-md-6 col-lg-4 mb-4'>
       <div class='property-entry h-100'  style='padding: 2%;'>
     <a><img src='$nfila->imagenPrincipal' id='$nfila->id_piso' alt='Image' class='img-fluid'></a>

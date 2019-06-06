@@ -45,7 +45,9 @@ else{
             <div class="col-8" id="menu2">
                <a href='index.php' style="color:white;">Incio</a>
                <a href='buy.html' style="color:white;">Casas en alquiler</a>
+               <a onclick="salida()" id="salida" style="color:white;">Desconectarse</a>
                <a href='inicio_sesion.php' style="color:white;">Iniciar Sesion</a>
+
             </div>
          </div>
          <div class="row d-flex align-items-center" id="anuncioMenu">

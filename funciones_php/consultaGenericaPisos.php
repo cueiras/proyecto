@@ -3,7 +3,7 @@
 function genericaPisos(){
 	include 'conexion.php';
 
-	$sql = "SELECT pisos.id_piso,pisos.imagenPrincipal,pisos.precio,pisos.habitaciones,pisos.banios,pisos.m2,comunidades.nombreComunidad,ciudades.nombreCiudad,zonas.nombreZona,zonas.calle,zonas.numero,zonas.piso from pisos ,comunidades,ciudades,zonas where comunidades.idComunidades = ciudades.idComunidades and ciudades.idCiudad = zonas.idCiudad and zonas.idZona = pisos.idZona";
+	$sql = "SELECT pisos.id_piso,pisos.imagenPrincipal,pisos.precio,pisos.habitaciones,pisos.banios,pisos.m2,comunidades.nombreComunidad,ciudades.nombreCiudad,zonas.nombreZona,pisos.calle,pisos.numero,pisos.piso from pisos ,comunidades,ciudades,zonas where comunidades.idComunidades = ciudades.idComunidades and ciudades.idCiudad = zonas.idCiudad and zonas.idZona = pisos.idZona";
 	$res = $conexion->query($sql);
 
 	while ($nfila = $res->fetch_object()) {

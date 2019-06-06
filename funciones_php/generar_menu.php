@@ -23,7 +23,7 @@ function generar_menu(){
 	include 'conexion.php';
 	$numero=$_SESSION['numero'];
 
-	$sql = "select ciudades.nombreCiudad,zonas.nombreZona,pisos.precio,pisos.imagenPrincipal from pisos,ciudades,zonas where id_piso='$numero' and ciudades.idCiudad = zonas.idCiudad and zonas.idZona = pisos.idZona";
+	$sql = "select pisos.id_piso ,ciudades.nombreCiudad,zonas.nombreZona,pisos.precio,pisos.imagenPrincipal from pisos,ciudades,zonas where id_piso='$numero' and ciudades.idCiudad = zonas.idCiudad and zonas.idZona = pisos.idZona";
 	
 	$res = $conexion->query($sql);
 
@@ -37,7 +37,7 @@ function generar_menu(){
    			echo"<h1 class='mb-2' style='color:white'>Ciudad:$nfila->nombreCiudad Zona: $nfila->nombreZona</h1>";
 			echo"<p class='mb-5'><strong class='h2 text-success font-weight-bold'>Precio:$nfila->precio</strong></p>";
    	
-			echo"<p><a href='#' class='btn  py-3 px-5 rounded-0 btn-2' style='color:white'>Mas detalles</a></p>
+			echo"<a id='$nfila->id_piso' class='btn py-3 px-5 rounded-0 btn-2 buscar2' style='color:white'><p>Mas detalles</a>
             </div>
           </div>
         </div>";

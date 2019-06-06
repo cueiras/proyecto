@@ -1,9 +1,7 @@
 <?php 
-
+inicio();
 function inicio(){
 session_start();
-
-$usuario=$_GET['usuario'];
 
 header('Content-Type: application/json');
 
