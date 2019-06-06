@@ -38,7 +38,7 @@ else{
 <body>
    <div style="<?php fondo();?>" id="menuPrincipal">
       <div class="container">
-         <div class="row d-flex d-flex align-items-center mb-4">
+         <div class="row d-flex d-flex align-items-right mb-4">
             <div class='col-4' id="menu1">
                <h1 class='mb-0'><a href='index.php' class='h2 mb-0'><strong style="color:white;">ALQUILEA<span class='text-danger'>.</span></strong></a></h1>
             </div>
@@ -62,27 +62,27 @@ else{
    <div class="site-section site-section-sm pb-0" id="selects">
       <div class="container">
          <div class="row d-flex align-items-center">
-            <div class="col-2">
-               <label>Comunidades</label>
+            <div class="col-lg-2 col-md-4 p-4">
+               <label>Comunidades</label><br/>
                <select name="list-types" id="comunidad">
                   <option value="" disabled selected>Comunidades</option>
                   <?php comunidades();?>
                </select>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-4 p-3">
                <label for="offer-types">Ciudades</label><br/>
                <select id="ciudad">
                   <option id="optionCiudades" value="" disabled selected>Ciudades</option>
                </select>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-4 p-3">
                <label>Zona</label><br/>
                <select id="zona">
                   <option id="optionZonas" value="" disabled selected>Zonas</option>
                </select>
             </div>
-            <div class="col-2">
-               <label>Habitaciones</label>
+            <div class="col-lg-2 col-md-4 p-3">
+               <label>Habitaciones</label><br/>
                <select id="habitaciones">
                   <option id="option1" value="" disabled selected>Habitaciones</option>
                   <option value="1">1 o mas</option>
@@ -91,7 +91,7 @@ else{
                   <option value="4">4 o mas</option>
                </select>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-4 p-3">
                <label>Baños</label><br/>
                <select id="baños">
                   <option id="option1" value="" disabled selected>Baños</option>
@@ -100,10 +100,10 @@ else{
                   <option value="3">3 o mas</option>
                </select>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-4 p-4" id="busqueda">
                <input id="buscar" type="button" class="btn btn-success text-white" value="Buscar">
             </div>
-            <div class="col-12 d-flex align-items-center">
+            <div class="col-12 mt-4 d-flex align-items-center">
                 <p id="error" class="text-danger"></p>
             </div>
          </div>
