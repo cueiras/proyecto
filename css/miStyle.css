@@ -19,11 +19,14 @@
 }
 #menu2{
 	padding-top: 1%;
-	padding-left: 35%;
+	
 }
 #menuPrincipal{
 	padding-top: 1%;
 }
 #busqueda{
 	margin-top: 20px;
+}
+@media screen and (max-width: 770px) {
+
 }

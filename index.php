@@ -20,7 +20,10 @@ else{
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/miStyle.css">
     <link rel="stylesheet" href="css/style.css">
-    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
   
     <?php include './funciones_php/generar_menu.php';
     	  
@@ -38,16 +41,15 @@ else{
 <body>
    <div style="<?php fondo();?>" id="menuPrincipal">
       <div class="container">
-         <div class="row d-flex d-flex align-items-right mb-4">
-            <div class='col-4' id="menu1">
+         <div class="row mb-4" id="menuGeneral">
+            <div class='col-md-6 justify-content-md-start col-xs-12 d-flex justify-content-center' id="menu1">
                <h1 class='mb-0'><a href='index.php' class='h2 mb-0'><strong style="color:white;">ALQUILEA<span class='text-danger'>.</span></strong></a></h1>
             </div>
-            <div class="col-8" id="menu2">
+            <div class="col-md-6 d-flex justify-content-md-end col-xs-12 justify-content-center" id="menu2">
                <a href='index.php' style="color:white;">Incio</a>
                <a href='buy.html' style="color:white;">Casas en alquiler</a>
                <a onclick="salida()" id="salida" style="color:white;">Desconectarse</a>
                <a href='inicio_sesion.php' style="color:white;">Iniciar Sesion</a>
-
             </div>
          </div>
          <div class="row d-flex align-items-center" id="anuncioMenu">
@@ -59,6 +61,7 @@ else{
          </div>
       </div>
    </div>
+
    <div class="site-section site-section-sm pb-0" id="selects">
       <div class="container">
          <div class="row d-flex align-items-center">
