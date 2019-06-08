@@ -5,6 +5,18 @@ function direcionar(){
 		console.log(idPiso);
 		$.get("./funciones_php/cargaPisos.php",{'idPiso' : idPiso},function(data,estado){
 			if(estado == 'success'){
+				$.get("./funciones_php/cargaImagenes.php",{'idPiso' : idPiso},function(data,estado){
+					if(estado == 'success'){
+						console.log(data);
+						for(var i=0;i<data.length;i++){
+                        	if(i == 0){
+                        		$("#imagenes").append("<div class='carousel-item active'><img src='./images/"+data[i].imagen+"'class='img-fluid'></div>");
+                        	}else{
+                        		$("#imagenes").append("<div class='carousel-item '><img src='./images/"+data[i].imagen+"'class='img-fluid'></div>");
+                        	}
+                   		}
+					}
+				})
 				$("#selects").hide();
 				$("#pisos").hide();
 				$("#carrousel").hide();
@@ -16,7 +28,7 @@ function direcionar(){
 				$("#anio").text(data.anio);
 				$("#preciom2").text(data.precio_m2);
 				$("#informacion").text(data.informacion);
-				$("#tlf").text("TLF: "+data.telefono);
+				$("#tlf").text("Telefono: "+data.telefono);
 				$("#principal").attr("src",""+data.imagenPrincipal+"");
 				$("#m2").text(data.m2);
 				$("#habitacion").text(data.habitaciones);
@@ -45,7 +57,7 @@ function pisoMenu(){
 				$("#anio").text(data.anio);
 				$("#preciom2").text(data.precio_m2);
 				$("#informacion").text(data.informacion);
-				$("#tlf").text("TLF: "+data.telefono);
+				$("#tlf").text("Telefono: "+data.telefono);
 				$("#principal").attr("src",""+data.imagenPrincipal+"");
 				$("#m2").text(data.m2);
 				$("#habitacion").text(data.habitaciones);
