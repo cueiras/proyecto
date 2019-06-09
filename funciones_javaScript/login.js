@@ -31,7 +31,7 @@
 
 	/*funcion para validar el registro de la pagina*/
 	function registro(){
-	
+			event.preventDefault();
 			var usuario = $("#usuario1").val();
 			var contraseña1= $("#contraseña1").val();
 			var contraseña2= $("#contraseña2").val();
@@ -59,14 +59,14 @@
 				$("#contraseña1").html();
 				$("#contraseña2").html();
 				$("#contraseña1").focus();
-				event.preventDefault();
+				
 				}
 					if(expreg2.test(correo)){
 						$.get("./funciones_php/registro.php",{'usuario' : usuario,'contraseña' : contraseña1,'correo' :correo},function(data,estado){
                 			if(estado == 'success'){
                 				if(data.disponible=='si'){
                 					console.log("todo correcto");
-                					return true;
+                					$(location).attr("href","inicio_sesion.php");
                 				}else{
                 					$("#alertas2").html("<p>Ese usuairo ya existe</p>");
                 					$("#usuario1").html();
@@ -74,7 +74,7 @@
                 					console.log(data.disponible);
                 					console.log(data);
                 					
-                					event.preventDefault();
+                					
                 				}
                 			}
             			 });
@@ -86,7 +86,7 @@
 						$("#correo").focus();
 						$("#alertas2").html("<p>el correo introducido no es valido</p>");
 						
-						event.preventDefault();
+						
 					}
 			}
 			
@@ -95,7 +95,7 @@
 				$("#contraseña1").focus();
 				$("#alertas2").append("La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula NO puede tener otros símbolos");
 				
-				event.preventDefault();
+				
 			}
 
 

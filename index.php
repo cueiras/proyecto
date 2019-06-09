@@ -2,7 +2,9 @@
 session_start();
 
 if(isset($_SESSION['usuario'])){
-  echo $_SESSION['usuario'];
+  if($_SESSION['usuario']=='administrador'){
+    header ("Location: vistaAdmin.php");
+  }
 }
 else{
   //header("location:inicio_sesion.php");

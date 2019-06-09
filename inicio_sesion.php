@@ -30,7 +30,7 @@ else{
 		<div class="login-form">
 			
 			<div class="sign-in-htm">
-				<form action="index.php" onsubmit="return log()">
+				<form action="index.php" onsubmit="log()">
 				<div class="group">
 					<label for="user" class="label">Usuario</label>
 					<input id="usuario" type="text" class="input" required>
@@ -52,7 +52,7 @@ else{
 
 			
 			<div class="sign-up-htm">
-				<form action="index.php" onsubmit="return registro()">
+				<form action="index.php" onsubmit="registro()">
 				<div class="group">
 					<label for="user" class="label">Usuario</label>
 					<input id="usuario1" type="text" class="input" required>

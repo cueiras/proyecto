@@ -10,9 +10,9 @@ function direcionar(){
 						console.log(data);
 						for(var i=0;i<data.length;i++){
                         	if(i == 0){
-                        		$("#imagenes").append("<div class='carousel-item active'><img src='./images/"+data[i].imagen+"'class='img-fluid'></div>");
+                        		$("#imagenes").append("<div class='carousel-item active'><img src='"+data[i].imagen+"'class='img-fluid'></div>");
                         	}else{
-                        		$("#imagenes").append("<div class='carousel-item '><img src='./images/"+data[i].imagen+"'class='img-fluid'></div>");
+                        		$("#imagenes").append("<div class='carousel-item '><img src='"+data[i].imagen+"'class='img-fluid'></div>");
                         	}
                    		}
 					}
@@ -46,6 +46,18 @@ function pisoMenu(){
 		console.log(idPiso);
 		$.get("./funciones_php/cargaPisos.php",{'idPiso' : idPiso},function(data,estado){
 			if(estado == 'success'){
+				$.get("./funciones_php/cargaImagenes.php",{'idPiso' : idPiso},function(data,estado){
+					if(estado == 'success'){
+						console.log(data);
+						for(var i=0;i<data.length;i++){
+                        	if(i == 0){
+                        		$("#imagenes").append("<div class='carousel-item active'><img src='"+data[i].imagen+"'class='img-fluid'></div>");
+                        	}else{
+                        		$("#imagenes").append("<div class='carousel-item '><img src='"+data[i].imagen+"'class='img-fluid'></div>");
+                        	}
+                   		}
+					}
+				})
 				$("#selects").hide();
 				$("#pisos").hide();
 				$("#carrousel").hide();
