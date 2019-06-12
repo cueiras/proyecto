@@ -1,7 +1,8 @@
+var idPiso=0;
 function direcionar(){
 	$(document).on("click",".img-fluid",function(){
 
-		var idPiso = $(this).attr("id");
+		idPiso = $(this).attr("id");
 		console.log(idPiso);
 		$.get("./funciones_php/cargaPisos.php",{'idPiso' : idPiso},function(data,estado){
 			if(estado == 'success'){
@@ -69,7 +70,7 @@ function pisoMenu(){
 				$("#anio").text(data.anio);
 				$("#preciom2").text(data.precio_m2);
 				$("#informacion").text(data.informacion);
-				$("#tlf").text("Telefono: "+data.telefono);
+				$("#tlf").text("Teléfono: "+data.telefono);
 				$("#principal").attr("src",""+data.imagenPrincipal+"");
 				$("#m2").text(data.m2);
 				$("#habitacion").text(data.habitaciones);
@@ -80,12 +81,53 @@ function pisoMenu(){
 		})
 	})
 }
+function mensaje(){
+    $("#mensaje").click(function(){
+        event.preventDefault();
+        var piso = idPiso;
+        var nombre = $("#nombre").val();
+        var email = $("#email").val();
+        var telefono = $("#telefono").val();
+        var mensaje = $("#pregunta").val();
+        var expreg = new RegExp(/\w{9}/g);
+        var expreg2= new RegExp(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/);
+        if(expreg.test(telefono)&&expreg2.test(email)){
+            if(nombre == ''||email == ''||telefono == ''||mensaje == ''){
+                $("#alerta").text("Debes rellenar todos los campos");
+            }else{
+            
+            
+            $.get("./funciones_php/mensaje.php",{'nombre' : nombre,'email' : email,'telefono' : telefono,'mensaje' : mensaje,'piso' : piso},function(data,estado){
+            if(estado == 'success'){
+                console.log(data);
+                if(data.sesion == 'si'){
+                    $("#alerta").html("");
+                    alert("Su mensaje se ha enviado correctamente");
+                }
+                else{
+                    $("#alerta").text("Debes iniciar sesion para poder enviar un mensaje");
+                }
+            }
+        })
+        }
+        }else{
+            $("#alerta").html("El formato del telefono o el email no es correcto");
+        }
 
-
+        
+    })
+}
+function mover(){
+    $("#mover").click(function(){
+        window.scrollTo(0,500);
+    })
+}
 
 $(document).ready(function() {
 	direcionar();
 	pisoMenu();
+    mensaje();
+    mover();
 	$("#oculto").hide();
 })
 

@@ -26,7 +26,7 @@ function genericaPisos(){
     }
 
   $sql = "SELECT pisos.id_piso,pisos.imagenPrincipal,pisos.precio,pisos.habitaciones,pisos.banios,pisos.m2,comunidades.nombreComunidad,ciudades.nombreCiudad,pisos.calle,pisos.piso from pisos ,comunidades,ciudades,zonas where (comunidades.idComunidades = ciudades.idComunidades and ciudades.idCiudad = zonas.idCiudad and zonas.idZona = pisos.idZona) AND comunidades.idComunidades='$comunidades' and 
-    ciudades.idCiudad='$ciudad' and zonas.idZona REGEXP '$zona' and pisos.habitaciones > '$habitaciones' and pisos.banios > '$banio' and pisos.estado='F'";
+    ciudades.idCiudad='$ciudad' and zonas.idZona REGEXP '$zona' and pisos.habitaciones >= '$habitaciones' and pisos.banios >= '$banio' and pisos.estado='F'";
   $res = $conexion->query($sql);
   $casas = [];
   while ($nfila = $res->fetch_object()) {

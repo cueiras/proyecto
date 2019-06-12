@@ -27,3 +27,16 @@
 #busqueda{
 	margin-top: 20px;
 }
+#mover{
+    cursor: pointer;
+}
+#salida{
+    cursor: pointer;
+}
+
+
+.carousel-item {
+  height: 100px;
+  min-height: 350px;
+}
+

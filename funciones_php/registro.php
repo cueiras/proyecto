@@ -11,17 +11,17 @@ $sql = "select usuario from usuarios where usuario='$usuario'";
 	$res = $conexion->query($sql);
 	$row = $res->fetch_object();
 	if($row==null){
-		
+		$idUsuario=0;
 		$pas_cifrado=password_hash($contraseña, PASSWORD_DEFAULT);
 
 		$stmt = $conexion->stmt_init();
 
-		$sql = "INSERT INTO usuarios (usuario,contraseña,email) VALUES (?,?,?)";
+		$sql = "INSERT INTO usuarios (idUsuario,usuario,contraseña,email) VALUES (?,?,?,?)";
 
 		if (!$stmt->prepare($sql)) die($stmt-> error);
 
 
-		$stmt->bind_param("sss",$usuario,$pas_cifrado,$correo);
+		$stmt->bind_param("isss",$idUsuario,$usuario,$pas_cifrado,$correo);
     
     	$stmt->execute() or die ($conexion -> error);
 
