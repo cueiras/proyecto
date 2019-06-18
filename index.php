@@ -36,10 +36,10 @@
       <div style="<?php fondo();?>" id="menuPrincipal">
          <div class="container">
             <div class="row mb-4" id="menuGeneral">
-               <div class='col-md-6 justify-content-md-start col-xs-12 d-flex justify-content-center' id="menu1">
+               <div class='col-lg-6 mt-2 justify-content-lg-start col-xs-12 d-flex justify-content-center' id="menu1">
                   <h1 class='mb-0'><a href='index.php' class='h2 mb-0'><strong style="color:white;">ALQUILEA<span class='text-danger'>.</span></strong></a></h1>
                </div>
-               <div class="col-md-6 d-flex justify-content-md-end col-xs-12 justify-content-center" id="menu2">
+               <div class="col-lg-6 d-flex justify-content-lg-end col-xs-12 justify-content-center" id="menu2">
                   <a href='index.php' style="color:white;">Incio</a>
                   <a onclick="mover()" id="mover" style="color:white;">Casas en alquiler</a>
                   <a onclick="salida()" id="salida" style="color:white;">Desconectarse</a>
@@ -61,7 +61,7 @@
                <div class="col-lg-2 col-md-4 p-4">
                   <label>Comunidades</label><br/>
                   <select name="list-types" id="comunidad" style="width:auto;">
-                     <option value="" disabled selected>Comunidades</option>
+                     <option value="" disabled selected>Comunidades   </option>
                      <?php comunidades();?>
                   </select>
                </div>
@@ -138,6 +138,7 @@
                            <div class='col-md-6'>
                               <h2>Precio</h2>
                               <strong id="precio" class='text-success h1 mb-3'></strong>
+                              <strong id="precio" class='text-success h1 mb-3'>&euro;</strong>
                            </div>
                            <div class='col-md-6'>
                               <ul class='property-specs-wrap mb-3 mb-lg-0  float-lg-right'>
@@ -178,11 +179,11 @@
                      <div class='bg-white widget border rounded'>
                         <h3 class='h4 text-black widget-title mb-3'>Contacto</h3>
                         <form action="index.php">
-                           <div class='form-group'>
+                           <div class='form-group' id="nombreOcultar">
                               <label for='name'>Nombre</label>
                               <input type='text' id='nombre' class='form-control' maxlength='20' required>
                            </div>
-                           <div class='form-group'>
+                           <div class='form-group' id="emailOcultar">
                               <label for='email'>Email</label>
                               <input type='email' id='email' class='form-control'  required >
                            </div>
@@ -208,9 +209,35 @@
                         <p>De Lunes a Viernes</p>
                      </div>
                   </div>
+                  <div class="col-12">
+
+
+                  </div>
                </div>
             </div>
          </div>
       </div>
+      <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="mb-5">
+              <h3 class="footer-heading mb-4">Alquilea</h3>
+              <p>Alquilea es un web de alquiler de pisos dedicada exclusivamente para estudiantes. Idea original de Miguel Pérez Fernández</p>
+            </div>
+          </div>
+          </div>
+                  <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <p>
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            </p>
+          </div>
+          
+        </div>
+        </div>
+
+      </div>
+    </footer>
    </body>
 </html>

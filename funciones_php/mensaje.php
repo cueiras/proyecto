@@ -1,10 +1,22 @@
 <?php
 	session_start();
     	include 'conexion.php';
+    	$nombre='';
+    	$email='';
+
     if(isset($_SESSION['usuario'])){
+    	$usuario = $_SESSION['usuario'];
+    	$sql = "select * from usuarios where usuario='$usuario'";
+	$res = $conexion->query($sql);
+    
+	$nfila = $res->fetch_object();
+	$nombre = $nfila->usuario;
+	$email=$nfila->email;
+    }else{
+    	$nombre = $_GET['nombre'];
+		$email = $_GET['email'];	
+    }
         $id=0;
-		$nombre = $_GET['nombre'];
-		$email = $_GET['email'];
 		$telefono = $_GET['telefono'];
 		$mensaje = $_GET['mensaje'];
         $piso = $_GET['piso'];
@@ -22,11 +34,8 @@
 
 		header('Content-Type: application/json');
 		echo json_encode(array("sesion" =>"si"));
-	}
-	else{
-		header('Content-Type: application/json');
-		echo json_encode(array("sesion" =>"no"));
-	}
+	
+	
 
 
 

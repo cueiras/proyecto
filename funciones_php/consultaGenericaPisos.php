@@ -3,7 +3,7 @@
 function genericaPisos(){
 	include 'conexion.php';
 
-	$sql = "SELECT pisos.id_piso,pisos.imagenPrincipal,pisos.precio,pisos.habitaciones,pisos.banios,pisos.m2,comunidades.nombreComunidad,ciudades.nombreCiudad,zonas.nombreZona,pisos.calle,pisos.numero,pisos.piso from pisos ,comunidades,ciudades,zonas where comunidades.idComunidades = ciudades.idComunidades and ciudades.idCiudad = zonas.idCiudad and zonas.idZona = pisos.idZona";
+	$sql = "SELECT pisos.id_piso,pisos.imagenPrincipal,pisos.precio,pisos.habitaciones,pisos.banios,pisos.m2,comunidades.nombreComunidad,ciudades.nombreCiudad,zonas.nombreZona,pisos.calle,pisos.numero,pisos.piso from pisos ,comunidades,ciudades,zonas where comunidades.idComunidades = ciudades.idComunidades and ciudades.idCiudad = zonas.idCiudad and zonas.idZona = pisos.idZona and pisos.estado='F'";
 	$res = $conexion->query($sql);
 
 	while ($nfila = $res->fetch_object()) {
@@ -12,7 +12,7 @@ function genericaPisos(){
 		echo"<a><img src='$nfila->imagenPrincipal' id='$nfila->id_piso' alt='Image' class='img-fluid'></a>";
         echo"<h2 class='property-title' style='margin-top: 5%;'>Calle: <a href='#'>$nfila->calle</a></h2>";
         echo"<span class='property-location d-block mb-3'><span class='property-icon icon-room'></span>Comunidad: $nfila->nombreComunidad (Ciudad: $nfila->nombreCiudad)</span>";
-        echo"<strong class='property-price text-primary mb-3 d-block text-success'>$nfila->precio $</strong>";
+        echo"<strong class='property-price text-primary mb-3 d-block text-success'>$nfila->precio &euro;</strong>";
 		echo"<ul class='property-specs-wrap mb-3 mb-lg-0'>";
         echo"<li>";
         echo"<span class='property-specs'>Habitaciones</span>";

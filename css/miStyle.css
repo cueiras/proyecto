@@ -19,7 +19,7 @@
 }
 #menu2{
 	padding-top: 1%;
-	
+	font-size: 25px;
 }
 #menuPrincipal{
 	padding-top: 1%;
@@ -37,6 +37,6 @@
 
 .carousel-item {
   height: 100px;
-  min-height: 350px;
+  min-height: 400px;
 }
 

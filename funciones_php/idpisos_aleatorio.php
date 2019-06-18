@@ -2,7 +2,7 @@
 function id_pisos(&$valor) {
 	include 'conexion.php';
 
-	$sql = "SELECT id_piso FROM pisos";
+	$sql = "SELECT id_piso FROM pisos WHERE pisos.estado='F'";
 	
 	$res = $conexion->query($sql);
 	$numero=-1;

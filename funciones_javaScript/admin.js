@@ -91,7 +91,7 @@ function informacion() {
 
 function eliminar() {
 	$(document).on("click", "#eliminar", function () {
-		var idMensaje = $("input:first").attr("id");
+		var idMensaje = $(".mensaje").attr("id");
 
 		$.get("./funciones_php/eliminar.php", {
 			'idMensaje': idMensaje

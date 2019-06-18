@@ -36,7 +36,7 @@ function generar_menu(){
     		echo"<span class='d-inline-block bg-success text-white px-3 mb-3 property-offer-type rounded'>Alquiler</span>";
 			echo"<h1 class='mb-2' id='titulo' style='color:white'>Ciudad:$nfila->nombreCiudad </h1>";
 			echo"<h1 class='mb-2' id='titulo' style='color:white'>Zona: $nfila->nombreZona</h1>";
-			echo"<p class='mb-5'><strong class='h2 text-success font-weight-bold'>Precio:$nfila->precio</strong></p>";
+			echo"<p class='mb-5'><strong class='h2 text-info font-weight-bold'>Precio:$nfila->precio &euro;</strong></p>";
    	
 			echo"<a id='$nfila->id_piso' class='btn py-3 px-5 rounded-0 btn-2 buscar2' style='color:white'><p>Mas detalles</a>
             </div>

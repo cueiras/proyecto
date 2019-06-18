@@ -21,9 +21,9 @@ function direcionar(){
 				$("#selects").hide();
 				$("#pisos").hide();
 				$("#carrousel").hide();
-				$("#menuPrincipal").attr("style","background-color:rgb(205, 205, 177);");
+				$("#menuPrincipal").attr("style","background-color:rgba(44, 44, 44, 1);");
 				$("#calle").text("Calle: "+data.calle+": Nº"+data.numero+" "+data.piso+"/"+data.nombreZona+", "+data.nombreCiudad);
-				$("#precio").text(data.precio+"$");
+				$("#precio").text(data.precio);
 				$("#banios").text(data.banios);
 				$("#tipoCasa").text(data.tipo_casa);
 				$("#anio").text(data.anio);
@@ -33,7 +33,17 @@ function direcionar(){
 				$("#principal").attr("src",""+data.imagenPrincipal+"");
 				$("#m2").text(data.m2);
 				$("#habitacion").text(data.habitaciones);
+				$.get("./funciones_php/sesion.php",function(data,estado){
+					if(estado=='success'){
+						if(data.sesion =='si'){
+							$("#nombreOcultar").hide();
+							$("#emailOcultar").hide();
+						}
+					}
+				})
 				$("#oculto").show();
+				$("#mover").html("Datos de la vivienda");
+				
 				window.scrollTo(0,0);
 					
 			}
@@ -62,9 +72,9 @@ function pisoMenu(){
 				$("#selects").hide();
 				$("#pisos").hide();
 				$("#carrousel").hide();
-				$("#menuPrincipal").attr("style","background-color:rgb(205, 205, 177);");
+				$("#menuPrincipal").attr("style","background-color: rgba(44, 44, 44, 1);");
 				$("#calle").text("Calle: "+data.calle+": Nº"+data.numero+" "+data.piso+"/"+data.nombreZona+", "+data.nombreCiudad);
-				$("#precio").text(data.precio+"$");
+				$("#precio").text(data.precio);
 				$("#banios").text(data.banios);
 				$("#tipoCasa").text(data.tipo_casa);
 				$("#anio").text(data.anio);
@@ -75,6 +85,7 @@ function pisoMenu(){
 				$("#m2").text(data.m2);
 				$("#habitacion").text(data.habitaciones);
 				$("#oculto").show();
+
 				window.scrollTo(0,0);
 					
 			}
@@ -84,6 +95,30 @@ function pisoMenu(){
 function mensaje(){
     $("#mensaje").click(function(){
         event.preventDefault();
+        $.get("./funciones_php/sesion.php",function(data,estado){
+			if(estado=='success'){
+				if(data.sesion =='si'){
+					var piso = idPiso;
+					var telefono = $("#telefono").val();
+        			var mensaje = $("#pregunta").val();
+        			var expreg = new RegExp(/\w{9}/g);
+        			if(expreg.test(telefono)){
+        				$.get("./funciones_php/mensaje.php",{'nombre' : nombre,'email' : email,'telefono' : telefono,'mensaje' : mensaje,'piso' : piso},function(data,estado){
+            				if(estado == 'success'){
+                				if(data.sesion == 'si'){
+                    				$("#alerta").html("");
+                    				alert("Su mensaje se ha enviado correctamente");
+                				}else{
+                    				$("#alerta").html("ha ocurrido un error al enviar su mensaje");
+               	 				}
+            				}
+       					})
+        			}else{
+        				$("#alerta").text("Debes introducir un telefono valido");
+        			}
+				}
+			}
+		})
         var piso = idPiso;
         var nombre = $("#nombre").val();
         var email = $("#email").val();
@@ -99,7 +134,7 @@ function mensaje(){
             
             $.get("./funciones_php/mensaje.php",{'nombre' : nombre,'email' : email,'telefono' : telefono,'mensaje' : mensaje,'piso' : piso},function(data,estado){
             if(estado == 'success'){
-                console.log(data);
+                
                 if(data.sesion == 'si'){
                     $("#alerta").html("");
                     alert("Su mensaje se ha enviado correctamente");
@@ -119,7 +154,7 @@ function mensaje(){
 }
 function mover(){
     $("#mover").click(function(){
-        window.scrollTo(0,500);
+        window.scrollTo(0,560);
     })
 }
 

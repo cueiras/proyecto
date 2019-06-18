@@ -2,35 +2,37 @@
 
 include 'conexion.php';
 
-$sql = "SELECT mensajes.fecha,mensajes.idMensaje,mensajes.telefono,mensajes.email,mensajes.mensaje,mensajes.fecha,pisos.calle,pisos.piso,pisos.numero,zonas.nombreZona,ciudades.nombreCiudad from mensajes,pisos,zonas,ciudades where mensajes.idPiso = pisos.id_piso and pisos.idZona = zonas.idZona and zonas.idCiudad = ciudades.idCiudad ORDER BY mensajes.fecha ASC;";
+$sql = 'SELECT mensajes.usuario,mensajes.fecha,mensajes.idMensaje,mensajes.telefono,mensajes.email,mensajes.mensaje,mensajes.fecha,pisos.calle,pisos.piso,pisos.numero,zonas.nombreZona,ciudades.nombreCiudad from mensajes,pisos,zonas,ciudades where mensajes.idPiso = pisos.id_piso and pisos.idZona = zonas.idZona and zonas.idCiudad = ciudades.idCiudad ORDER BY mensajes.fecha ASC;';
 $res = $conexion->query($sql);
 $mensajes = [];
 while ($nfila = $res->fetch_object()) {
   $mensajes[] = array("mensaje" => "
-<div class='form-group mt-4'>
-  <label for='comunidad'>Piso</label>
-  <input type='text' id='$nfila->idMensaje' class='form-control' readonly placeholder='$nfila->nombreCiudad/$nfila->nombreZona, $nfila->calle,$nfila->numero,$nfila->piso'>
-</div>
-<div class='form-group'>
-  <label for='comunidad'>Fecha del mensaje</label>
-  <input type='text' id='nombre' class='form-control' readonly placeholder='$nfila->fecha'>
-</div>
-<div class='form-group'>
-  <label for='ciudad'>Email</label>
-  <input type='text' id='email' class='form-control' readonly placeholder='$nfila->email'>
-</div>
-<div class='form-group'>
-  <label for='ciudad'>Teléfono</label>
-  <input type='text' id='telefono' class='form-control' readonly placeholder='$nfila->telefono'>
-</div>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-6 p-3'>
+        <h3 class='mensaje' id='$nfila->idMensaje'>Datos de usuario:</h3>
+        <ul class='list-group'>
+            <li class='list-group-item active'>Usuario: $nfila->usuario</li>
+            <li class='list-group-item'>Fecha del mesnsaje: $nfila->fecha</li>
+            <li class='list-group-item'>Telefono: $nfila->telefono</li>
+            <li class='list-group-item'>Email: $nfila->email</li>
+        </ul>
+      </div>
+      <div class='col-6'>
+          <div class='list-group p-3 mt-4'>
+          
+                <div class='d-flex w-100 justify-content-between'>
+                <h5 class='mb-1'>$nfila->nombreCiudad / $nfila->nombreZona / $nfila->calle  N:$nfila->numero $nfila->piso</h5>
+                </div>
+                <p class='mb-1'>Mensaje: $nfila->mensaje</p>
 
-<div class='form-group'>
-  <label for='informacion'>Mensaje</label>
-  <textarea class='form-control' rows='3' id='mensaje' readonly>$nfila->mensaje</textarea>
-</div>
-<div class='form-group'>
-  <input type='submit' id='eliminar'  class='btn btn-danger' value='Eliminar mensaje'>
-</div>");
+          </div>
+      </div>
+      <div class='col-12 d-flex justify-content-end'>
+        <input type='submit' id='eliminar'  class='btn btn-danger' value='Eliminar mensaje'>
+      </div>
+    </div>
+  </div>");
 }
 header('Content-Type: application/json');
 echo json_encode($mensajes);
